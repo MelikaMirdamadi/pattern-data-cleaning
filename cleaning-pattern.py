@@ -2,7 +2,7 @@ import json
 import re
 
 # Read the JSON content from the file
-with open('./chunking files/UserManuals/Zimmer_enPuls2_V3.1_cleaned.json', 'r', encoding='utf-8') as file:
+with open('input-path-file.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 def replace_newlines(obj):
@@ -12,7 +12,6 @@ def replace_newlines(obj):
 
         # Replace consecutive dots with a single dot
         # return re.sub(r'\.+','.',obj)
-
 
         # return re.sub(r'\n\s*\n\s*\n\s*', r'n\\', obj)
 
@@ -28,7 +27,7 @@ def replace_newlines(obj):
 modified_data = replace_newlines(data)
 
 # Write the modified JSON content back to the file
-with open('./chunking files/UserManuals/Zimmer_enPuls2_V3.1_cleaned.json', 'w', encoding='utf-8') as file:
+with open('output.json', 'w', encoding='utf-8') as file:
     json.dump(modified_data, file, ensure_ascii=False, indent=4)
 
 print("Newlines have been replaced successfully.")
