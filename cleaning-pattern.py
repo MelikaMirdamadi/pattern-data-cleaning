@@ -10,11 +10,6 @@ def replace_newlines(obj):
         # Replace multiple \n with a single n\
         return re.sub(r'\n{3,}', '\n\n', obj)
 
-        # Replace consecutive dots with a single dot
-        # return re.sub(r'\.+','.',obj)
-
-        # return re.sub(r'\n\s*\n\s*\n\s*', r'n\\', obj)
-
     elif isinstance(obj, list):
         # Recursively handle lists
         return [replace_newlines(item) for item in obj]
